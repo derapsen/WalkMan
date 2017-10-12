@@ -1,0 +1,6 @@
+framework module Pods_WalkMan {
+  umbrella header "Pods-WalkMan-umbrella.h"
+
+  export *
+  module * { export * }
+}

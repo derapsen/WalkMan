@@ -1,0 +1,12 @@
+PODS:
+  - SwiftRangeSlider (1.1.0)
+
+DEPENDENCIES:
+  - SwiftRangeSlider
+
+SPEC CHECKSUMS:
+  SwiftRangeSlider: fdaabc219e813d47f26525d9a56b6b5e5ba55b51
+
+PODFILE CHECKSUM: c17e67707df4f48be7d3adc4bcfad44b14ae9e24
+
+COCOAPODS: 1.2.1

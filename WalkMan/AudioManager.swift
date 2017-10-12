@@ -7,7 +7,29 @@
 //
 
 import UIKit
+import MediaPlayer
 
-class AudioManager: NSObject {
-
+class AudioManager: NSObject
+{
+    static let sharedManager = AudioManager()  // singleton
+    
+    var player = MPMusicPlayerController()
+    var mediaItem: MPMediaItem?
+    var startTime: Double?
+    var endTime: Double?
+    
+    private override init()
+    {
+        self.player = MPMusicPlayerController.systemMusicPlayer()
+    }
+    
+    func ChangeStartTime(start: Double)
+    {
+        self.startTime = start
+    }
+    
+    func ChangeEndTime(end: Double)
+    {
+        self.endTime = end
+    }
 }
