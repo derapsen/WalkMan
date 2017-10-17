@@ -69,7 +69,7 @@
                                     <action selector="changeRangeValue:" destination="BYZ-38-t0r" eventType="valueChanged" id="qw7-oX-tC8"/>
                                 </connections>
                             </view>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="jll-gJ-1mJ">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" continuous="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jll-gJ-1mJ">
                                 <rect key="frame" x="33" y="473" width="254" height="31"/>
                                 <color key="minimumTrackTintColor" red="0.70581942796707153" green="0.70592266321182251" blue="0.70579689741134644" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>

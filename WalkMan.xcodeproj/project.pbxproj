@@ -19,6 +19,8 @@
 		A23D69881F23C7DF004ACF55 /* SwiftRangeSlider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A23D69871F23C7DF004ACF55 /* SwiftRangeSlider.framework */; };
 		A243F7B51F2E221100D64596 /* TopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A243F7B41F2E221100D64596 /* TopViewController.swift */; };
 		A243F7B71F2E282A00D64596 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A243F7B61F2E282A00D64596 /* AudioManager.swift */; };
+		A256E00B1F9586FC008F8CEC /* TriangleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A256E0091F9586FB008F8CEC /* TriangleButton.swift */; };
+		A256E00C1F9586FC008F8CEC /* InvertedTriangleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A256E00A1F9586FC008F8CEC /* InvertedTriangleButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,8 @@
 		A23D69871F23C7DF004ACF55 /* SwiftRangeSlider.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftRangeSlider.framework; path = "../../Library/Developer/Xcode/DerivedData/WalkMan-gtldauoerhwbpyaawaxehugvdvib/Build/Products/Debug-iphoneos/SwiftRangeSlider/SwiftRangeSlider.framework"; sourceTree = "<group>"; };
 		A243F7B41F2E221100D64596 /* TopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopViewController.swift; sourceTree = "<group>"; };
 		A243F7B61F2E282A00D64596 /* AudioManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
+		A256E0091F9586FB008F8CEC /* TriangleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TriangleButton.swift; path = "../../三角形ボタンサンプル/TriangleButton.swift"; sourceTree = "<group>"; };
+		A256E00A1F9586FC008F8CEC /* InvertedTriangleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InvertedTriangleButton.swift; path = "../../三角形ボタンサンプル/InvertedTriangleButton.swift"; sourceTree = "<group>"; };
 		E875487F06BEACF01156147F /* Pods-WalkMan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WalkMan.release.xcconfig"; path = "Pods/Target Support Files/Pods-WalkMan/Pods-WalkMan.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,6 +127,8 @@
 		A20F5E5C1F23BEE0007BB657 /* WalkMan */ = {
 			isa = PBXGroup;
 			children = (
+				A256E00A1F9586FC008F8CEC /* InvertedTriangleButton.swift */,
+				A256E0091F9586FB008F8CEC /* TriangleButton.swift */,
 				A20F5E5D1F23BEE0007BB657 /* AppDelegate.swift */,
 				A20F5E5F1F23BEE0007BB657 /* ViewController.swift */,
 				A20F5E611F23BEE0007BB657 /* Main.storyboard */,
@@ -352,6 +358,8 @@
 				A243F7B51F2E221100D64596 /* TopViewController.swift in Sources */,
 				A20F5E601F23BEE0007BB657 /* ViewController.swift in Sources */,
 				A243F7B71F2E282A00D64596 /* AudioManager.swift in Sources */,
+				A256E00B1F9586FC008F8CEC /* TriangleButton.swift in Sources */,
+				A256E00C1F9586FC008F8CEC /* InvertedTriangleButton.swift in Sources */,
 				A20F5E5E1F23BEE0007BB657 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

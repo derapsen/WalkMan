@@ -76,11 +76,6 @@ class TopViewController: UIViewController
         super.didReceiveMemoryWarning()
     }
     
-//    @IBAction func unwindToTop(segue: UIStoryboardSegue)
-//    {
-//        
-//    }
-    
     /*
      *
      *  曲編集ボタン処理

@@ -32,8 +32,7 @@ class ViewController: UIViewController, MPMediaPickerControllerDelegate
         self.scrubSlider.value = Float(self.audioManager.player.currentPlaybackTime)
         if (self.scrubSlider.value >= Float(self.rangeSlider.upperValue))
         {
-            self.audioManager.player.pause()
-            self.scrubSlider.value = Float(self.rangeSlider.lowerValue)
+            self.barStatusStop()
         }
     }
     
@@ -46,7 +45,6 @@ class ViewController: UIViewController, MPMediaPickerControllerDelegate
             self.Setting()
         }
         
-        //self.player = MPMusicPlayerController.systemMusicPlayer()   //
         var timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(self.changeScrub), userInfo: nil, repeats: true)
         
         self.btnPause.isEnabled = false
@@ -64,7 +62,7 @@ class ViewController: UIViewController, MPMediaPickerControllerDelegate
     
     /*
      *
-     *
+     *  曲情報から各部品の設定を行う
      *
      */
     func Setting()
@@ -87,13 +85,12 @@ class ViewController: UIViewController, MPMediaPickerControllerDelegate
         self.scrubSlider.value = 0
         
         // 音楽の再生位置を再生範囲スライダーの下限値にする
-        //self.player.currentPlaybackTime = self.rangeSlider.lowerValue
         self.audioManager.player.currentPlaybackTime = self.rangeSlider.lowerValue
     }
     
     /*
      *
-     *メディアアイテムピッカーでアイテムを選択完了したときに呼び出される
+     *  メディアアイテムピッカーでアイテムを選択完了したときに呼び出される
      *
      */
     func mediaPicker(_ mediaPicker: MPMediaPickerController, didPickMediaItems mediaItemCollection: MPMediaItemCollection)
@@ -124,7 +121,6 @@ class ViewController: UIViewController, MPMediaPickerControllerDelegate
             self.scrubSlider.value = 0
             
             // 音楽の再生位置を再生範囲スライダーの下限値にする
-            //self.player.currentPlaybackTime = self.rangeSlider.lowerValue
             self.audioManager.player.currentPlaybackTime = self.rangeSlider.lowerValue
         }
         // ピッカーを閉じ、破棄する
@@ -139,8 +135,6 @@ class ViewController: UIViewController, MPMediaPickerControllerDelegate
     func updateSongInformationUI(mediaItem: MPMediaItem)
     {
         // 曲情報表示
-        // (a ?? b は、a != nil ? a! : b を示す演算子です)
-        // (aがnilの場合にはbとなります)
         self.lblArtist.text = mediaItem.artist ?? "不明なアーティスト"
         self.lblAlbum.text = mediaItem.albumTitle ?? "不明なアルバム"
         self.lblSong.text = mediaItem.title ?? "不明な曲"
@@ -154,7 +148,6 @@ class ViewController: UIViewController, MPMediaPickerControllerDelegate
         else
         {
             // アートワークがないとき
-            // (今回は灰色表示としました)
             self.imgArtwork.image = nil
             self.imgArtwork.backgroundColor = UIColor.gray
         }
@@ -195,10 +188,13 @@ class ViewController: UIViewController, MPMediaPickerControllerDelegate
      */
     @IBAction func tapPlay(_ sender: UIBarButtonItem)
     {
+        self.barStatusPlay()
+    }
+    func barStatusPlay()
+    {
+        self.audioManager.player.play()
         self.rangeSlider.alpha = 0.5
         self.rangeSlider.isEnabled = false
-        //self.player.play()  //
-        self.audioManager.player.play()
         self.btnPause.isEnabled = true
         self.btnPlay.isEnabled = false
         self.btnStop.isEnabled = true
@@ -211,7 +207,10 @@ class ViewController: UIViewController, MPMediaPickerControllerDelegate
      */
     @IBAction func tapPause(_ sender: UIBarButtonItem)
     {
-        //self.player.pause()  //
+        self.barStatusPause()
+    }
+    func barStatusPause()
+    {
         self.audioManager.player.pause()
         self.btnPause.isEnabled = false
         self.btnPlay.isEnabled = true
@@ -228,9 +227,11 @@ class ViewController: UIViewController, MPMediaPickerControllerDelegate
      */
     @IBAction func tapStop(_ sender: UIBarButtonItem)
     {
-        //self.player.pause()  //
+        self.barStatusStop()
+    }
+    func barStatusStop()
+    {
         self.audioManager.player.pause()
-        //self.player.currentPlaybackTime = self.rangeSlider.lowerValue   //
         self.audioManager.player.currentPlaybackTime = self.rangeSlider.lowerValue
         self.scrubSlider.value = Float(self.rangeSlider.lowerValue)
         self.btnPause.isEnabled = false
@@ -253,12 +254,11 @@ class ViewController: UIViewController, MPMediaPickerControllerDelegate
             sender.lowerValue = Double(self.scrubSlider.value)
             self.audioManager.ChangeStartTime(start: sender.lowerValue)
         }
-        else if (sender.upperValue < Double(self.scrubSlider.value))
+        if (sender.upperValue < Double(self.scrubSlider.value))
         {
             sender.upperValue = Double(self.scrubSlider.value)
             self.audioManager.ChangeEndTime(end: sender.upperValue)
         }
-        //self.player.currentPlaybackTime = Double(self.scrubSlider.value)
         self.audioManager.player.currentPlaybackTime = Double(self.scrubSlider.value)
     }
     
@@ -273,11 +273,10 @@ class ViewController: UIViewController, MPMediaPickerControllerDelegate
         {
             sender.value = Float(self.rangeSlider.lowerValue)
         }
-        else if (sender.value > Float(self.rangeSlider.upperValue))
+        if (sender.value > Float(self.rangeSlider.upperValue))
         {
             sender.value = Float(self.rangeSlider.upperValue)
         }
-        //self.player.currentPlaybackTime = Double(sender.value)
         self.audioManager.player.currentPlaybackTime = Double(sender.value)
     }
     @IBAction func tapMain(_ sender: Any)
