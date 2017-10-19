@@ -39,14 +39,14 @@ class ViewController: UIViewController, MPMediaPickerControllerDelegate
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
+
         if (self.audioManager.mediaItem != nil)
         {
             self.Setting()
         }
-        
+
         var timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(self.changeScrub), userInfo: nil, repeats: true)
-        
+
         self.btnPause.isEnabled = false
         self.btnPlay.isEnabled = true
         self.btnStop.isEnabled = false
