@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		1D4F41493D75C3D3EDF5737C /* Pods_WalkMan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 868DF2DE910D6B3EC97F909D /* Pods_WalkMan.framework */; };
 		A20F5E5E1F23BEE0007BB657 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20F5E5D1F23BEE0007BB657 /* AppDelegate.swift */; };
-		A20F5E601F23BEE0007BB657 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20F5E5F1F23BEE0007BB657 /* ViewController.swift */; };
+		A20F5E601F23BEE0007BB657 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20F5E5F1F23BEE0007BB657 /* EditViewController.swift */; };
 		A20F5E631F23BEE0007BB657 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A20F5E611F23BEE0007BB657 /* Main.storyboard */; };
 		A20F5E651F23BEE0007BB657 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A20F5E641F23BEE0007BB657 /* Assets.xcassets */; };
 		A20F5E681F23BEE0007BB657 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A20F5E661F23BEE0007BB657 /* LaunchScreen.storyboard */; };
@@ -45,7 +45,7 @@
 		868DF2DE910D6B3EC97F909D /* Pods_WalkMan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WalkMan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A20F5E5A1F23BEE0007BB657 /* WalkMan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WalkMan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A20F5E5D1F23BEE0007BB657 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A20F5E5F1F23BEE0007BB657 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A20F5E5F1F23BEE0007BB657 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		A20F5E621F23BEE0007BB657 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A20F5E641F23BEE0007BB657 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A20F5E671F23BEE0007BB657 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -130,7 +130,7 @@
 				A256E00A1F9586FC008F8CEC /* InvertedTriangleButton.swift */,
 				A256E0091F9586FB008F8CEC /* TriangleButton.swift */,
 				A20F5E5D1F23BEE0007BB657 /* AppDelegate.swift */,
-				A20F5E5F1F23BEE0007BB657 /* ViewController.swift */,
+				A20F5E5F1F23BEE0007BB657 /* EditViewController.swift */,
 				A20F5E611F23BEE0007BB657 /* Main.storyboard */,
 				A20F5E641F23BEE0007BB657 /* Assets.xcassets */,
 				A20F5E661F23BEE0007BB657 /* LaunchScreen.storyboard */,
@@ -356,7 +356,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A243F7B51F2E221100D64596 /* TopViewController.swift in Sources */,
-				A20F5E601F23BEE0007BB657 /* ViewController.swift in Sources */,
+				A20F5E601F23BEE0007BB657 /* EditViewController.swift in Sources */,
 				A243F7B71F2E282A00D64596 /* AudioManager.swift in Sources */,
 				A256E00B1F9586FC008F8CEC /* TriangleButton.swift in Sources */,
 				A256E00C1F9586FC008F8CEC /* InvertedTriangleButton.swift in Sources */,

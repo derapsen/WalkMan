@@ -18,6 +18,25 @@ class AudioManager: NSObject
     var startTime: Double?
     var endTime: Double?
     
+//    var downMediaItem: MPMediaItem?
+//    var downStartTime: Double?
+//    var downEndTime: Double?
+//    
+//    var upMediaItem: MPMediaItem?
+//    var upStartTime: Double?
+//    var upEndTime: Double?
+    
+    // UserDefaults のインスタンス
+    let UD = UserDefaults.standard
+    
+    let downMediaItemKey: String = "downItem_value"
+    let downStartTimeKey: String = "downStart_value"
+    let downEndTimeKey: String = "downEnd_value"
+    
+    let upMediaItemKey: String = "upItem_value"
+    let upStartTimeKey: String = "upStart_value"
+    let upEndTimeKey: String = "upEnd_value"
+    
     private override init()
     {
         self.player = MPMusicPlayerController.systemMusicPlayer()

@@ -11,15 +11,13 @@ import CoreMotion
 
 class TopViewController: UIViewController
 {
-    @IBOutlet weak var lblSelectName: UILabel!
-    @IBOutlet weak var btnEdit: UIButton!
-    @IBOutlet weak var btnPlay: UIButton!
     
-    // メンバー変数でないと動作しないので注意
-    let pedometer = CMPedometer()
+    @IBOutlet weak var btnUpDown: UIBarButtonItem!
+    @IBOutlet weak var btnDown: InvertedTriangleButton!
+    @IBOutlet weak var btnUp: TriangleButton!
     
     var audioManager: AudioManager = AudioManager.sharedManager
-    var isPlay: Bool = false
+    var isUpDown: Bool = false
     
     
     override func viewDidLoad()
@@ -37,57 +35,89 @@ class TopViewController: UIViewController
     
     func Setting()
     {
-        self.btnPlay.layer.cornerRadius = 40
-        
-        if (self.audioManager.mediaItem?.playbackDuration == nil)
+
+    }
+    
+    
+    /*
+     *
+     *  UPボタン処理
+     *
+     */
+    @IBAction func UPTapAction(_ sender: Any)
+    {
+        performSegue(withIdentifier: "goEdit", sender: "UP")
+    }
+    
+    /*
+     *
+     *  DOWNボタン処理
+     *
+     */
+    @IBAction func DOWNTapAction(_ sender: Any)
+    {
+        performSegue(withIdentifier: "goEdit", sender: "DOWN")
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.identifier == "goEdit"
         {
-            self.btnPlay.isEnabled = false
-        }
-        else
-        {
-            self.btnPlay.isEnabled = true
+            let editViewController = segue.destination as! EditViewController
+            editViewController.typeUPDOWN = sender as! String
+            
+            if (editViewController.typeUPDOWN == "UP")
+            {
+                editViewController.viewBackground.backgroundColor = self.UIColorFromRGB(rgbValue: 0xFFA000)
+            }
+            else
+            {
+                editViewController.viewBackground.backgroundColor = self.UIColorFromRGB(rgbValue: 0x00B8FA)
+            }
+            editViewController.topNavi.title = editViewController.typeUPDOWN
         }
     }
     
     /*
      *
-     *  曲編集ボタン処理
+     *  UIColorHEX処理
      *
      */
-    @IBAction func tapEdit(_ sender: Any)
+    func UIColorFromRGB(rgbValue: UInt) -> UIColor
     {
-        self.audioManager.player.pause()
+        return UIColor
+        (
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
     }
-
+    
     /*
      *
-     *  曲再生ボタン処理
+     *  上り下り計測処理
      *
      */
-    @IBAction func tapPlay(_ sender: UIButton)
+    @IBAction func upDownAction(_ sender: Any)
     {
+        print("hoge")
         if (self.audioManager.mediaItem != nil)
         {
-            self.btnPlay.isEnabled = true
-            self.isPlay = !self.isPlay
-            if (self.isPlay)
+            self.btnUpDown.isEnabled = true
+            self.isUpDown = !self.isUpDown
+            if (self.isUpDown)
             {
-                sender.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0)
-                sender.setTitle("II", for: UIControlState.normal)
-                self.btnEdit.isEnabled = false
-                self.btnEdit.alpha = 0.6
+                self.btnUpDown.image = UIImage(named: "standing-up-man")
             }
             else
             {
-                sender.titleEdgeInsets = UIEdgeInsetsMake(0, 5, 0, 0)
-                sender.setTitle("▶︎", for: UIControlState.normal)
-                self.btnEdit.isEnabled = true
-                self.btnEdit.alpha = 1.0
+                self.btnUpDown.image = UIImage(named: "stairs")
             }
         }
         else
         {
-            self.btnPlay.isEnabled = false
+            self.btnUpDown.isEnabled = false
         }
     }
 }

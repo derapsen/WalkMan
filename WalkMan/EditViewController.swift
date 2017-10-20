@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  EditViewController.swift
 //  WalkMan
 //
 //  Created by AppCircle on 2017/07/19.
@@ -10,22 +10,27 @@ import UIKit
 import SwiftRangeSlider
 import MediaPlayer
 
-class ViewController: UIViewController, MPMediaPickerControllerDelegate
+class EditViewController: UIViewController, MPMediaPickerControllerDelegate
 {
     //var player = MPMusicPlayerController()
     var audioManager: AudioManager = AudioManager.sharedManager
     
+    @IBOutlet var viewBackground: UIView!
+    @IBOutlet weak var topNavi: UINavigationItem!
+    
     @IBOutlet weak var imgArtwork: UIImageView!
-    @IBOutlet weak var lblArtist: UILabel!
-    @IBOutlet weak var lblAlbum: UILabel!
     @IBOutlet weak var lblSong: UILabel!
+    @IBOutlet weak var lblAlbum: UILabel!
+    @IBOutlet weak var lblArtist: UILabel!
+    
+    @IBOutlet weak var rangeSlider: RangeSlider!
+    @IBOutlet weak var scrubSlider: UISlider!
     
     @IBOutlet weak var btnPause: UIBarButtonItem!
     @IBOutlet weak var btnPlay: UIBarButtonItem!
     @IBOutlet weak var btnStop: UIBarButtonItem!
     
-    @IBOutlet weak var rangeSlider: RangeSlider!
-    @IBOutlet weak var scrubSlider: UISlider!
+    var typeUPDOWN: String = ""
     
     func changeScrub()
     {
